@@ -1,0 +1,50 @@
+<ion-view>
+<div class="bar bar-header bar-dark item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios7-search placeholder-icon"></i>
+    <ion-google-place placeholder="Nearby" ng-model="location" />
+ <!--   <input type="search" id="searchTextField"   ng-blur="lookupPlaceByName" placeholder="Search"> -->
+  </label>
+  
+</div>
+  <ion-content class="has-header">
+   <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="getLocation()">
+  </ion-refresher>
+  <div ng-controller="headCtrl">
+   <button class="button" id="FBLoginBtn" ng-hide="currentUser.id" ng-click="logFacebookUserIn()">Facebook</button>
+   <a ng-show="currentUser" ng-click="logUserOut()">Logout {{currentUser.attributes.name}}</a> 
+      <div ng-show="currentUser">
+    <ion-list ng-show="businesses">
+      <ion-item ng-repeat="business in businesses | orderBy:'distance'" type="item-text-wrap" href="#/tab/place/{{business.place_id}}" class="no-padding place-list-item">
+        
+        <div class="place-result-div" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{business.img}}');background-size: cover;">
+          <div class="place-result">
+            <h3>{{business.name}}</h3>
+            <p>{{business.vicinity}}</p>
+            <p>{{business.distance}} miles away</p>
+          </div>
+          <div class="place-result-likes">
+              <p ng-show="business.recs"> FR: {{business.friends.length}}</p>
+          </div>
+          <!--<p><span ng-repeat="type in business.types">{{type}}<span ng-hide="$last">, </span></span></p>-->
+        </div>
+        <div class="place-result-bottom place-result-bottom-header" ng-show="business.friends.length > 0">
+        Your friends who recommend this place
+        </div>
+        <div class="place-result-bottom clearfix" ng-show="business.friends.length > 0">
+          <div class="circular" ng-repeat="friend in business.friends" style="background: url('http://graph.facebook.com/{{friend}}/picture');"></div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div ng-hide="businesses">
+    Loading
+    </div>
+  </div>
+  </div>
+    <div id="map-canvas"></div>
+
+  </ion-content>
+</ion-view>

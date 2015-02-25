@@ -1,0 +1,43 @@
+<ion-view title="{{place.name}}">
+  <ion-nav-bar class="bar-dark">
+
+    <div class="buttons primary-buttons">
+      <button class="button" ng-click="myGoBack()">
+            Back
+      </button>
+    </div>
+  </ion-nav-bar>
+  <ion-content>
+      <div class="place-result-div" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{place.img}}');background-size: cover;">
+          <div class="place-result">
+            <h3>{{place.name}}</h3>
+            <p>{{place.vicinity}}</p>
+          </div>
+          <div class="place-result-likes">
+              <p ng-show="place.recs"> FR: {{place.friends.length}}</p>
+          </div>
+          <!--<p><span ng-repeat="type in place.types">{{type}}<span ng-hide="$last">, </span></span></p>-->
+        </div>
+        <div id="map-canvas"></div>
+        <div class="place-result-bottom place-result-bottom-header" ng-show="place.friends.length > 0">
+        Your friends who recommend this place
+        </div>
+        <div class="place-result-bottom clearfix" ng-show="place.friends.length > 0">
+          <div class="circular" ng-repeat="friend in place.friends" style="background: url('http://graph.facebook.com/{{friend}}/picture');"></div>
+          </div>
+          <div class="distance-div">
+            <p>{{place.name}} is {{place.distance}} miles away</p>
+          </div>
+        </div>
+        <div id="map-canvas-place"></div>
+        <div class="place-details-bottom">
+           <p>Phone: {{place.formatted_phone_number}}</p>
+          <p ng-show="place.opening_hours.open_now">Open Now</p>
+          <p ng-hide="place.opening_hours.open_now">Closed Now</p>
+          <p>Hours: {{place.hours}}</p>
+        </div>
+        <button class="button button-full button-recommend" ng-click="likePlace()">
+          Recommend
+        </button>
+  </ion-content>
+</ion-view>

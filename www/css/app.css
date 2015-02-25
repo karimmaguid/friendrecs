@@ -1,0 +1,116 @@
+/* Your app's CSS, go crazy, make it your own */
+
+.ionic-logo {
+  display: block;
+  margin: 15px auto;
+  width: 96px;
+  height: 96px;
+}
+.no-padding {
+	padding: 0px;
+}
+.item-content {
+	padding: 0px;
+}
+
+.item-complex, a.item.item-complex, button.item.item-complex {
+  padding: 0; }
+
+.item-complex .item-content, .item-radio .item-content {
+  position: relative;
+  z-index: 2;
+  padding: 0px;
+  border: none;
+  background-color: white; }
+
+a.item-content {
+  display: block;
+  color: inherit;
+  text-decoration: none; }
+.place-result-div {
+	min-height: 200px;
+	padding: 20px;
+	border-bottom-color: #EC6B43;
+	display: table;
+	width: 100%;
+	color: white;
+	border-bottom: 1px solid #EC6B43;
+}
+.place-result {
+	margin-top: 150px;
+	float: left;
+	max-width: 300px;
+}
+.place-result  p {
+	color:#fff;
+}
+.place-result  h3 {
+	color:#fff;
+	font-size: 16px;
+}
+.place-result-likes {
+	float:right;
+}
+.place-result-likes  p {
+	color:#fff;
+	font-size: 20px;
+}
+.place-result-bottom, .place-details-bottom {
+	background-color: #1C1C1C;
+	color: #fff;
+	text-transform: uppercase;
+	height: 100%;
+	width: 100%;
+	padding:5px 20px;
+}
+.circular {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	float: left;
+	color:#fff;
+	margin-right:10px;
+}
+.bar.bar-dark {
+	background-color:  #1C1C1C;
+}
+.item {
+border:none;	
+}
+.pane {
+	background:none;
+}
+.ion-google-place-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: none;
+}
+
+
+input.ion-google-place[readonly]{
+    background-color: transparent;
+    cursor: text;
+}
+#map-canvas-place {
+   height: 300px;
+ 	width: 100%;
+   margin: 0px;
+   padding: 0px
+}
+.distance-div {
+background-color: #1C1C1C;
+	color: #fff;
+	height: 100%;
+	width: 100%;
+	padding:5px 20px;
+}
+.button-recommend {
+	background-color: #EC6B43;
+	color: #fff;
+}
